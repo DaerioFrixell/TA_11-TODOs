@@ -1,5 +1,5 @@
-import { ErrorPage } from "../page/error-page";
-import { KanbanPage } from "../page/kanban/KanbanPage";
+import { ErrorPage } from "../pages/error-page";
+import { KanbanPage } from "../pages/kanban/KanbanPage";
 
 export const routerSetting = [
   {

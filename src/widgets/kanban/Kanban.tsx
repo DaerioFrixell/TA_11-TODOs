@@ -1,5 +1,5 @@
-import { Content } from "../../feature/kanban/content"
-import { Navigation } from "../../feature/kanban/navigation"
+import { Content } from "../../features/kanban/content"
+import { Navigation } from "../../features/kanban/navigation"
 
 import './kanban.scss'
 

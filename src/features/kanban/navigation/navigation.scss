@@ -13,3 +13,14 @@
 
   margin-bottom: 4rem;
 }
+
+.modal-title {
+  color: $gray;
+  margin-bottom: 1rem;
+}
+
+.modal-navigation {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}

@@ -4,6 +4,7 @@ import './button.scss';
 
 type ButtonProps = {
   text: string
+  onClick: () => void
 
   className?: string
   iconPossition?: 'left' | 'right' | undefined
@@ -14,10 +15,12 @@ type ButtonProps = {
 export const Button: FC<ButtonProps> = ({
   text,
   className,
+  onClick,
   iconPossition = undefined,
-  type = 'button' }) => {
+  type = 'button'
+}) => {
   return (
-    <div className={`wrapper-button ${className}`}>
+    <div className={`wrapper-button ${className}`} onClick={onClick}>
       {iconPossition === 'left'
         ? (<div>icon</div>)
         : (null)
