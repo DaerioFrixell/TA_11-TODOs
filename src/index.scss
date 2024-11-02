@@ -1,3 +1,5 @@
+@forward './shared/ui/style/colors-global';
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,7 +9,7 @@
 html {
   font-size: 10px;
   font-family: Arial, Helvetica, sans-serif;
-  color: #222;
+  color: #ddd;
   background: linear-gradient(to right, rgb(96, 95, 95), rgb(42, 41, 41));
 }
 

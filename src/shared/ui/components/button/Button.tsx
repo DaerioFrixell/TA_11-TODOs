@@ -1,4 +1,6 @@
-import { ButtonHTMLAttributes, FC } from "react"
+import { ButtonHTMLAttributes, FC } from "react";
+
+import './button.scss';
 
 type ButtonProps = {
   text: string
@@ -8,22 +10,23 @@ type ButtonProps = {
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type']
 }
 
+// TODO: сделать иконки
 export const Button: FC<ButtonProps> = ({
   text,
   className,
   iconPossition = undefined,
   type = 'button' }) => {
   return (
-    <div>
+    <div className={`wrapper-button ${className}`}>
       {iconPossition === 'left'
-        ? (<span>icon</span>)
+        ? (<div>icon</div>)
         : (null)
       }
 
       <button
-        className={`button ${className}`}
+        className="button"
         type={type}>
-        {text}
+        {text.toUpperCase()}
       </button>
 
       {iconPossition === 'right'

@@ -1,0 +1,15 @@
+@use "../../../shared/ui/style/colors.scss" as *;
+
+.navigation {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+
+  background-color: $gray;
+  border-radius: 1.8rem;
+  border: 1px solid rgba(174, 171, 171, 0.356);
+  padding: 3rem 1.8rem;
+
+  margin-bottom: 4rem;
+}

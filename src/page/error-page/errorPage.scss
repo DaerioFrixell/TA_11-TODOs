@@ -1,3 +1,5 @@
+@use "../../shared/ui/style/colors.scss" as *;
+
 .error-page {
   margin: 20% auto;
   width: 300px;
@@ -12,11 +14,11 @@
     height: 100px;
     font-size: 2rem;
     font-weight: 600;
-    color: rgb(106, 165, 241);
+    color: $blue;
     transition: all .2s;
 
     &:hover {
-      color: rgb(47, 131, 242);
+      color: $blue-hover;
     }
   }
 }

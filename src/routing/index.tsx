@@ -7,6 +7,8 @@ export const routerSetting = [
     element: <KanbanPage />,
     errorElement: <ErrorPage />,
   },
+
+  // TODO сделать авторизацию через localStorage
   // {
   //   path: "/auth",
   //   element: <Auth />,

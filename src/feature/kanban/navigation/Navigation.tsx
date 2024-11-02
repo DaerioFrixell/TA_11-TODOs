@@ -1,10 +1,12 @@
-import { Button } from "../../../shared/ui/components/button"
+import { Button } from "../../../shared/ui/components/button";
+
+import './navigation.scss';
 
 export const Navigation = () => {
   return (
-    <div>
+    <div className="navigation">
       <Button
-        className=""
+        className="button-standard"
         text="добавить"
         iconPossition="left"
       />
@@ -12,7 +14,7 @@ export const Navigation = () => {
       <div>пополните список</div>
 
       <Button
-        className=""
+        className="button-danger"
         text="удалить"
         iconPossition="right"
       />
