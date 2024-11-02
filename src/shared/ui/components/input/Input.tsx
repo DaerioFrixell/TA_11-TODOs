@@ -1,11 +1,11 @@
-import { FC, InputHTMLAttributes } from "react";
+import { ChangeEvent, FC, InputHTMLAttributes } from "react";
 
 import './input.scss';
 
 type InputProps = {
   value: string
   placeholder: string
-  onChange: () => void
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
 
   className?: string
   type?: InputHTMLAttributes<HTMLInputElement>['type']

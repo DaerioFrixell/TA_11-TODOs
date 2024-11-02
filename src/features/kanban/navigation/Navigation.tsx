@@ -1,19 +1,40 @@
+import { useDispatch } from "react-redux";
+import { ChangeEvent, useState } from "react";
+
 import { Button } from "../../../shared/ui/components/button";
 import { Input } from "../../../shared/ui/components/input";
 import { Modal } from "../../../shared/ui/components/modal";
 import { useModal } from "../../../shared/hooks/useModal";
+import { addTodo, removeAll } from '../todo-list/todoSlice';
 
 import './navigation.scss';
 
 export const Navigation = () => {
-  const { hideModal, isVisible, showModal } = useModal()
+  const dispatch = useDispatch()
+  const { hideModal, isVisible, showModal } = useModal();
+  const [inputText, setInputText] = useState('');
 
-  const onClose = () => {
-    hideModal()
+  const inputOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const text = e.target.value;
+    setInputText(text)
   }
 
-  const onOpen = () => {
-    showModal()
+  const toCreateTodo = (text: string) => {
+    const id = new Date().getTime();
+
+    dispatch(addTodo({
+      id,
+      text,
+      checked: false,
+      deleted: false,
+    }));
+
+    setInputText('');
+    hideModal();
+  };
+
+  const toDeleteAllTodos = () => {
+    dispatch(removeAll())
   }
 
   return (
@@ -22,16 +43,16 @@ export const Navigation = () => {
         className="button-standard"
         text="добавить"
         iconPossition="left"
-        onClick={() => onOpen()}
+        onClick={showModal}
       />
 
-      <div>пополните список</div>
+      <div>пополните список...</div>
 
       <Button
         className="button-danger"
         text="удалить"
         iconPossition="right"
-        onClick={() => { }}
+        onClick={toDeleteAllTodos}
       />
 
       <Modal isVisible={isVisible} >
@@ -39,19 +60,19 @@ export const Navigation = () => {
 
         <Input
           placeholder="введите текст"
-          value={''}
-          onChange={() => { }} />
+          value={inputText}
+          onChange={inputOnChange} />
 
         <div className='modal-navigation'>
           <Button
             className="button-danger"
-            onClick={() => { }}
+            onClick={() => toCreateTodo(inputText)}
             text="добавить" />
 
           <Button
             className='button-standard'
             text='закрыть'
-            onClick={() => onClose()} />
+            onClick={hideModal} />
         </div>
       </Modal>
     </div >
