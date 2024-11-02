@@ -1,24 +1,13 @@
-import { createRoot } from 'react-dom/client'
-import { TodoApp } from './components/TodoApp'
+import { createRoot } from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 
 import "./index.scss";
-import { ErrorPage } from './page/ErrorPage';
+import { routerSetting } from './routing';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <TodoApp />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/asd",
-    element: <div>asd</div>,
-  },
-]);
+const router = createBrowserRouter(routerSetting);
 
 createRoot(document.getElementById('root')!).render(
   <RouterProvider router={router} />
