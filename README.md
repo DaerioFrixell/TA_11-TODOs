@@ -9,6 +9,6 @@ Stack:
 - Sass 1.8
 - RTK 2.3
 
-For startet project:
+For started project:
 - git clone
 - npm i
