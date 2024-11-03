@@ -1,0 +1,27 @@
+@use "../../../shared/ui/style/colors.scss" as *;
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  width: 60rem;
+  height: 5rem;
+  margin: 0 auto;
+  padding: 0px 20px;
+
+  border: 1px solid $white;
+  border-radius: 1px 8px;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+
+  &__completed {
+    text-decoration: line-through;
+    color: $blue-light;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 5rem;
+  }
+}

@@ -1,7 +1,9 @@
+@use "./colors.scss" as *;
+
 .button-standard {
-  background-color: rgba(86, 86, 241, 0.917);
+  background-color: $blue;
 }
 
 .button-danger {
-  background-color: rgba(232, 98, 98, 0.901);
+  background-color: $danger;
 }

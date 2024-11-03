@@ -1,0 +1,7 @@
+@use "../../../../shared/ui/style/colors.scss" as *;
+
+.delete-button {
+  &:hover {
+    transform: scale(90%);
+  }
+}
