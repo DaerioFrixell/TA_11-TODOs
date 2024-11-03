@@ -2,6 +2,12 @@
   display: flex;
   height: 3.4rem;
   border-radius: 3px;
+
+  &:hover {
+    opacity: .9;
+    transition-duration: 0.1s;
+    cursor: pointer;
+  }
 }
 
 .button {
@@ -19,8 +25,18 @@
   max-width: 500px;
 
   &:hover {
-    opacity: .7;
+    opacity: .9;
     text-decoration: none;
     transition-duration: 0.1s;
   }
+}
+
+.add-icon {
+  padding-left: 6px;
+  align-self: center;
+}
+
+.delete-all-icon {
+  padding-right: 6px;
+  align-self: center;
 }

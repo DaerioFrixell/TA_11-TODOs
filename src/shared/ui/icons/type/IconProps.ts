@@ -1,3 +1,3 @@
 export type CustomIconProps = {
-  className: string
+  className?: string
 }

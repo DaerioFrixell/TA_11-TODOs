@@ -46,7 +46,7 @@ export const Navigation = () => {
         onClick={showModal}
       />
 
-      <div>пополните список...</div>
+      <div className="navigation__useless-element">пополните список...</div>
 
       <Button
         className="button-danger"

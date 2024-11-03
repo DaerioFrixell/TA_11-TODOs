@@ -1,6 +1,8 @@
 import { ButtonHTMLAttributes, FC } from "react";
 
 import './button.scss';
+import { AddIcon } from "../../icons/add-icon";
+import { LinesIcon } from "../../icons/lines-icon";
 
 type ButtonProps = {
   text: string
@@ -22,7 +24,7 @@ export const Button: FC<ButtonProps> = ({
   return (
     <div className={`wrapper-button ${className}`} onClick={onClick}>
       {iconPossition === 'left'
-        ? (<div>icon</div>)
+        ? (<AddIcon className="add-icon" />)
         : (null)
       }
 
@@ -33,7 +35,7 @@ export const Button: FC<ButtonProps> = ({
       </button>
 
       {iconPossition === 'right'
-        ? (<span>icon</span>)
+        ? (<LinesIcon className="delete-all-icon" />)
         : (null)
       }
     </div>

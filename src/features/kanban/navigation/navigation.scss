@@ -12,6 +12,14 @@
   padding: 3rem 1.8rem;
 
   margin-bottom: 4rem;
+
+  &__useless-element {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    border-bottom: 1px solid gray;
+    cursor: default;
+  }
 }
 
 .modal-title {
