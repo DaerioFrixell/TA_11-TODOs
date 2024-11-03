@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { DeleteIcon } from "../../../../shared/ui/icons/delete-icon";
 
 import './deleteButton.scss';
@@ -7,7 +7,7 @@ type DeleteButtonProps = {
   onClick: () => void
 }
 
-export const DeleteButton: FC<DeleteButtonProps> = ({ onClick }) => {
+export const DeleteButton: FC<DeleteButtonProps> = memo(({ onClick }) => {
   return (
     <button
       onClick={onClick}
@@ -22,4 +22,4 @@ export const DeleteButton: FC<DeleteButtonProps> = ({ onClick }) => {
       <DeleteIcon className="delete-button" />
     </button>
   )
-}
+});

@@ -1,30 +1,28 @@
 import { FC } from "react";
 import { TodoProps } from "../../type/todo";
-import { useDispatch } from "react-redux";
-import { removeTodo, handleCheckedTodo } from '../todo-list/todoSlice';
 import { Checkbox } from "./checkbox";
 import { DeleteButton } from "./delete-button";
+import { useTodoItemActions } from "./hooks";
 
 import './todoItem.scss';
 
-export const TodoItem: FC<{ todo: TodoProps }> = ({ todo }) => {
-  const dispatch = useDispatch()
-
-  const handleRemoveTodo = (id: number) => {
-    dispatch(removeTodo(id));
-  };
-
-  const handleChecked = (id: number) => {
-    dispatch(handleCheckedTodo(id));
-  };
+export const TodoItem: FC<TodoProps> = ({
+  isChecked,
+  id,
+  text,
+}) => {
+  const { handleChecked, handleRemoveTodo } = useTodoItemActions(id);
 
   return (
-    <div className={`todo-item`}>
-      <span className={todo.checked === true ? `todo-item__completed` : undefined}>{todo.text}</span>
+    <div className="todo-item">
+      <span className={isChecked ? 'todo-item__completed' : ''}>
+        {text}
+      </span>
+
       <div className="todo-item__navigation">
-        <Checkbox isChecked={todo.checked} onChange={() => handleChecked(todo.id)} />
-        <DeleteButton onClick={() => handleRemoveTodo(todo.id)} />
+        <Checkbox isChecked={isChecked} onChange={handleChecked} />
+        <DeleteButton onClick={handleRemoveTodo} />
       </div>
     </div>
-  )
+  );
 };

@@ -14,27 +14,27 @@ export const Navigation = () => {
   const { hideModal, isVisible, showModal } = useModal();
   const [inputText, setInputText] = useState('');
 
-  const inputOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const text = e.target.value;
     setInputText(text)
   }
 
-  const toCreateTodo = (text: string) => {
-    const id = new Date().getTime();
+  const createTodo = () => {
+    if (!inputText.trim()) return;
 
     dispatch(addTodo({
-      id,
-      text,
-      checked: false,
-      deleted: false,
+      id: Date.now(),
+      text: inputText,
+      isChecked: false,
+      isDeleted: false,
     }));
 
     setInputText('');
     hideModal();
   };
 
-  const toDeleteAllTodos = () => {
-    dispatch(removeAll())
+  const deleteAllTodos = () => {
+    dispatch(removeAll());
   }
 
   return (
@@ -52,7 +52,7 @@ export const Navigation = () => {
         className="button-danger"
         text="удалить"
         iconPossition="right"
-        onClick={toDeleteAllTodos}
+        onClick={deleteAllTodos}
       />
 
       <Modal isVisible={isVisible} >
@@ -61,12 +61,12 @@ export const Navigation = () => {
         <Input
           placeholder="введите текст"
           value={inputText}
-          onChange={inputOnChange} />
+          onChange={handleInputChange} />
 
         <div className='modal-navigation'>
           <Button
             className="button-danger"
-            onClick={() => toCreateTodo(inputText)}
+            onClick={createTodo}
             text="добавить" />
 
           <Button

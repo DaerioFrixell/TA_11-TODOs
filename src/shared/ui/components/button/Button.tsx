@@ -13,7 +13,6 @@ type ButtonProps = {
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type']
 }
 
-// TODO: сделать иконки
 export const Button: FC<ButtonProps> = ({
   text,
   className,

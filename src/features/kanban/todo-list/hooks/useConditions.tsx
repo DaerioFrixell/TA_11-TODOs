@@ -1,13 +1,5 @@
 import { useMemo } from "react";
-
-type TodosProps = {
-  id: number
-  text: string
-  checked: boolean
-  deleted: boolean
-}
-
-type TodoListProps = TodosProps[];
+import { TodoListProps } from "../../../type/todo";
 
 export const useConditions = (todos: TodoListProps) => {
   const { allTodos, activeTodos, completedTodos, deletedTodos } = useMemo(() => {
@@ -17,14 +9,14 @@ export const useConditions = (todos: TodoListProps) => {
     const deletedTodos: TodoListProps = [];
 
     todos.forEach(todo => {
-      if (todo.deleted) {
+      if (todo.isDeleted) {
         deletedTodos.push(todo);
         return;
       }
 
       allTodos.push(todo);
 
-      if (todo.checked) {
+      if (todo.isChecked) {
         completedTodos.push(todo);
       } else {
         activeTodos.push(todo);

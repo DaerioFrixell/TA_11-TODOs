@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { CheckmarkIcon } from '../../../../shared/ui/icons/checkmark-icon';
 
 import './checkbox.scss';
@@ -8,7 +8,7 @@ type CheckboxProps = {
   onChange: () => void
 }
 
-export const Checkbox: FC<CheckboxProps> = ({
+export const Checkbox: FC<CheckboxProps> = memo(({
   isChecked,
   onChange,
 }) => {
@@ -20,7 +20,7 @@ export const Checkbox: FC<CheckboxProps> = ({
         onChange={onChange}
       />
 
-      <CheckmarkIcon className={isChecked ? 'isChecked' : 'default'} />
+      <CheckmarkIcon className={isChecked ? 'checkbox__isChecked' : 'checkbox__default'} />
     </label>
   );
-};
+});

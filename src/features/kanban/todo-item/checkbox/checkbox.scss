@@ -11,14 +11,14 @@ input[type="checkbox"] {
   &:hover {
     transform: scale(90%);
   }
-}
 
-.isChecked {
-  stroke: $blue-light;
-  transition: stroke .3s;
-}
+  &__isChecked {
+    stroke: $blue-light;
+    transition: stroke .3s;
+  }
 
-.default {
-  stroke: $black;
-  transition: stroke .6s;
+  &__default {
+    stroke: $black;
+    transition: stroke .6s;
+  }
 }

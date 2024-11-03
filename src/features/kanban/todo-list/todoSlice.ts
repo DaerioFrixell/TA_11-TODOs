@@ -4,6 +4,7 @@ import { TodoListProps, TodoProps } from '../../type/todo';
 
 const initialState: TodoListProps = [];
 
+// TODO: подумать, куда лучше переместить слайс, т.к. здесь ему точно не место.
 export const todoSlice = createSlice({
   name: 'todo',
   initialState,
@@ -14,20 +15,20 @@ export const todoSlice = createSlice({
 
     handleCheckedTodo: (state, action: PayloadAction<number>) => {
       return state.map(todo => todo.id === action.payload
-        ? { ...todo, checked: !todo.checked }
+        ? { ...todo, isChecked: !todo.isChecked }
         : todo
       )
     },
 
     removeTodo: (state, action: PayloadAction<number>) => {
       return state.map(todo => todo.id === action.payload
-        ? { ...todo, deleted: true }
+        ? { ...todo, isDeleted: true }
         : todo
       );
     },
 
     removeAll: (state) => {
-      return state.map(todo => ({ ...todo, deleted: true }))
+      return state.map(todo => ({ ...todo, isDeleted: true }))
     }
   },
 });

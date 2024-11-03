@@ -1,8 +1,8 @@
 export type TodoProps = {
   id: number
   text: string
-  checked: boolean
-  deleted: boolean
+  isChecked: boolean
+  isDeleted: boolean
 }
 
 export type TodoListProps = TodoProps[];
