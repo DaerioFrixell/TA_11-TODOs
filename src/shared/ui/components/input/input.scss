@@ -1,5 +1,8 @@
+@use "../../../ui/style/colors.scss" as *;
+
+
 .input {
-  border: 1px solid #ccc;
+  border: 1px solid $gray;
   border-radius: 4px;
   font-size: 16px;
   padding: 10px;
@@ -8,7 +11,7 @@
   transition: border-color 0.3s;
 
   &:focus {
-    border-color: #007bff;
+    border-color: $blue;
     outline: none;
   }
 

@@ -6,11 +6,11 @@ import { LinesIcon } from "../../icons/lines-icon";
 
 type ButtonProps = {
   text: string
-  onClick: () => void
 
   className?: string
   iconPossition?: 'left' | 'right' | undefined
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type']
+  onClick?: () => void
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -21,7 +21,7 @@ export const Button: FC<ButtonProps> = ({
   type = 'button'
 }) => {
   return (
-    <div className={`wrapper-button ${className}`} onClick={onClick}>
+    <div className={`${className} wrapper-button`} onClick={onClick}>
       {iconPossition === 'left'
         ? (<AddIcon className="add-icon" />)
         : (null)

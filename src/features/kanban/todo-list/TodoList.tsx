@@ -6,22 +6,32 @@ import { useSelector } from 'react-redux';
 import { TodoListProps } from "../../type/todo";
 
 import type { RootState } from '../../../store/store';
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 export const TodoList = () => {
   const todosSelector = useSelector((state: RootState) => state.todo)
-  const { currentTab } = useTabs();
+
+  const { currentTab, setTodosCount } = useTabs();
   const { activeTodos, allTodos, completedTodos, deletedTodos } = useConditions(todosSelector);
 
   const memoizedTodo = useMemo(() => {
     const todoMap: Record<string, TodoListProps> = {
-      [tabList[0]]: activeTodos,
-      [tabList[1]]: allTodos,
-      [tabList[2]]: completedTodos,
-      [tabList[3]]: deletedTodos,
+      [tabList[0].value]: activeTodos,
+      [tabList[1].value]: allTodos,
+      [tabList[2].value]: completedTodos,
+      [tabList[3].value]: deletedTodos,
     };
     return todoMap[currentTab];
   }, [currentTab, activeTodos, allTodos, completedTodos, deletedTodos]);
+
+  useEffect(() => {
+    setTodosCount({
+      active: activeTodos.length,
+      all: allTodos.length,
+      completed: completedTodos.length,
+      deleted: deletedTodos.length,
+    });
+  }, [activeTodos, completedTodos, deletedTodos, todosSelector, setTodosCount, allTodos.length]);
 
   return (
     <>

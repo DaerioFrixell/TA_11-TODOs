@@ -9,14 +9,15 @@ type InputProps = {
 
   className?: string
   type?: InputHTMLAttributes<HTMLInputElement>['type']
-}
+} & InputHTMLAttributes<HTMLInputElement>;
 
 export const Input: FC<InputProps> = ({
   value,
   placeholder,
   onChange,
   className,
-  type = "text"
+  type = "text",
+  ...props
 }) => {
   return (
     <div className={`input-standard ${className}`}>
@@ -25,7 +26,8 @@ export const Input: FC<InputProps> = ({
         type={type}
         placeholder={placeholder}
         value={value}
-        onChange={onChange} />
+        onChange={onChange}
+        {...props} />
     </div>
   );
 };

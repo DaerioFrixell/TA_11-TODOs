@@ -1,0 +1,28 @@
+@use "../../../shared/ui/style/colors.scss" as *;
+
+.error-message {
+  position: absolute;
+  top: 10px;
+
+  display: flex;
+  height: 5rem;
+  width: 30vw;
+  min-width: 30rem;
+  max-width: 50rem;
+  padding: .4rem 1rem;
+  border-radius: 4px;
+
+  align-items: center;
+  justify-content: space-between;
+  background-color: $danger-light ;
+
+  &__text {
+    font-size: 1.4rem;
+    color: $black;
+    font-weight: 600;
+  }
+
+  &__btn {
+    color: $black
+  }
+}

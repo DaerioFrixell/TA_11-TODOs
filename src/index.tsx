@@ -9,7 +9,6 @@ import { Provider } from 'react-redux'
 
 import "./index.scss";
 
-
 const router = createBrowserRouter(routerSetting);
 
 createRoot(document.getElementById('root')!).render(
